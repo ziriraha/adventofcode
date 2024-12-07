@@ -2,7 +2,7 @@ from collections import defaultdict
 from functools import cmp_to_key
 
 def read_input():
-    with open("day5.txt") as f:
+    with open("inputs/day5.txt") as f:
         data = f.read()
         order, manuals = data.split("\n\n")
         return parse_ordering(order.splitlines()), [m.split(",") for m in manuals.splitlines()]

@@ -1,5 +1,5 @@
 def read_and_sort():
-    with open("day1.txt", "r") as f:
+    with open("inputs/day1.txt", "r") as f:
         left = []
         right = []
         data = f.read().splitlines()

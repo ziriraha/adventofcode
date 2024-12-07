@@ -1,6 +1,6 @@
 def read_input():
     reports = []
-    with open("day2.txt", "r") as f:
+    with open("inputs/day2.txt", "r") as f:
         a = f.read().splitlines()
         for rep in a:
             levels = [int(x) for x in rep.split(" ")]

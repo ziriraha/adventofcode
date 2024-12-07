@@ -1,7 +1,7 @@
 import re
 
 def read_input():
-    with open("day6.txt", "r") as f:
+    with open("inputs/day6.txt", "r") as f:
         return [list(line) for line in f.read().splitlines()]
     
 def convert(pmap):

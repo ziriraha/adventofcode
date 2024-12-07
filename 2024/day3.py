@@ -1,7 +1,7 @@
 import re
 
 def read_input():
-    with open("day3.txt", "r") as f:
+    with open("inputs/day3.txt", "r") as f:
         data = f.read()
         return data
     

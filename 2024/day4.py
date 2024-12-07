@@ -1,7 +1,7 @@
 import re
 
 def read_input():
-    with open("day4.txt", "r") as f:
+    with open("inputs/day4.txt", "r") as f:
         return f.read().splitlines()
     
 def rotate_45_degrees(matrix):
