@@ -16,7 +16,7 @@ This repository is dedicated to my solutions for the Advent of Code problems. Ad
 - Day 4 ✅ ✅
 - Day 5 ✅ ✅
 - Day 6 ✅ ✅
-- Day 7
+- Day 7 ✅ ✅
 - Day 8
 - Day 9
 - Day 10
