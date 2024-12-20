@@ -21,20 +21,17 @@ def get_neighbours(i, j, mapa):
 def part1(mapa):
     regions = defaultdict(list)
     region_id = -1
-    visited = []
-    for i in range(len(mapa)):
-        for j in range(len(mapa[i])):
-            if (i, j) in visited: continue
-            region_id += 1
-            to_visit = [(i, j)]
-            while len(to_visit) > 0:
-                p = to_visit.pop()
-                if p in visited: continue
-                neighbours = get_neighbours(p[0], p[1], mapa)
-                to_visit += neighbours
-                perimeter = 4 - len(neighbours)
-                regions[region_id].append(perimeter)
-                visited.append(p)
+    all_points = [(i, j) for j in range(len(mapa[0])) for i in range(len(mapa))]
+    while len(all_points) > 0:
+        region_id += 1
+        to_visit = [all_points[0]]
+        while len(to_visit) > 0:
+            p = to_visit.pop()
+            if p not in all_points: continue
+            neighbours = get_neighbours(p[0], p[1], mapa)
+            to_visit += neighbours
+            regions[region_id].append(4 - len(neighbours))
+            all_points.remove((p[0], p[1]))
     return sum([len(regions[reg]) * sum([point for point in regions[reg]]) for reg in regions.keys()])
 
 # ! 1st Try: Calculating the number of corners the region has.
@@ -50,16 +47,29 @@ def calculate_sides(region):
 
     # Number of sides is equal to number of corners (if two tiles share a corner, do not count the corner)
     corners = defaultdict(list)
+    region = region[::-1]
     for tile in region:
+
         for c in get_corners(tile):
-            if c in corners.keys():
-                pop_it = False
+
+            if len(corners[c]) > 0:
+                popIt = False
                 for t in corners[c]:
+
                     if is_adjecent(t, tile):
-                        pop_it = True
-                if pop_it: corners.pop(c)
-                else: corners[c].append(tile)
+                        popIt = True
+                        corners[c].remove(t)
+                        break
+
+                if not popIt: corners[c].append(tile)
+
             else: corners[c].append(tile)
+
+    keys = list(corners.keys())
+    for c in keys:
+        if len(corners[c]) == 0:
+            corners.pop(c)
+    print(corners)
     return sum([len(corners[c]) for c in corners.keys()])
 
 # ! 2nd Try (https://www.reddit.com/r/adventofcode/comments/1hcxmpp/2024_day_12_part_2_visualisation_of_my_first/)
@@ -67,21 +77,18 @@ def calculate_sides(region):
 def part2(mapa):
     regions = defaultdict(list)
     region_id = -1
-    visited = []
-    for i in range(len(mapa)):
-        for j in range(len(mapa[i])):
-            if (i, j) in visited: continue
-            region_id += 1
-            to_visit = [(i, j)]
-            while len(to_visit) > 0:
-                p = to_visit.pop()
-                if p in visited: continue
-                neighbours = get_neighbours(p[0], p[1], mapa)
-                to_visit += neighbours
-                regions[region_id].append((p[0], p[1]))
-                visited.append(p)
+    all_points = [(i, j) for j in range(len(mapa[0])) for i in range(len(mapa))]
+    while len(all_points) > 0:
+        region_id += 1
+        to_visit = [all_points[0]]
+        while len(to_visit) > 0:
+            p = to_visit.pop()
+            if p not in all_points: continue
+            to_visit += get_neighbours(p[0], p[1], mapa)
+            regions[region_id].append((p[0], p[1]))
+            all_points.remove((p[0], p[1]))
     return sum([len(regions[reg]) * calculate_sides(regions[reg]) for reg in regions.keys()])
 
 if __name__ == "__main__":
-    print(part1(read_input()))
+    #print(part1(read_input()))
     print(part2(read_input()))
