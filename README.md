@@ -12,6 +12,7 @@ This repository is dedicated to my solutions for the Advent of Code problems. Ad
 ### 2025
 - Day 1 ✅ ✅
 - Day 2 ✅ ✅
+- Day 3 ✅ ✅
 
 ### 2024
 - Day 1 ✅ ✅
