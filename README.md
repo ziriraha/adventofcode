@@ -11,6 +11,7 @@ This repository is dedicated to my solutions for the Advent of Code problems. Ad
 ## Progress Tracker
 ### 2025
 - Day 1 ✅ ✅
+- Day 2 ✅ ✅
 
 ### 2024
 - Day 1 ✅ ✅
