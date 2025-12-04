@@ -1,24 +1,25 @@
 def part1():
     invalid_ids = 0
     with open("inputs/day2.txt", "r") as f:
-        while True:
+        x = ','
+        while x:
             current_range = ""
-            while (x := f.read(1)) != "," and x: current_range += x
+            while (x := f.read(1)) and x != ',': current_range += x
             start, stop = map(int, current_range.split('-'))
             for i in range(start, stop + 1):
                 s = str(i)
                 if len(s) % 2: continue
                 mid = len(s)//2
-                if s[0:mid] == s[mid:]: invalid_ids += i
-            if not x: break
+                invalid_ids += i * (s[0:mid] == s[mid:])
     return invalid_ids
 
 def part2():
     invalid_ids = 0
     with open("inputs/day2.txt", "r") as f:
-        while True:
+        x = ','
+        while x:
             current_range = ""
-            while (x := f.read(1)) != "," and x: current_range += x
+            while (x := f.read(1)) and x != ',': current_range += x
             start, stop = map(int, current_range.split('-'))
             for i in range(start, stop + 1):
                 s, invalid = str(i), False
@@ -29,7 +30,6 @@ def part2():
                         if prev != s[k*j:k*j+j]: it = False; break
                     if it: invalid = True; break
                 if invalid: invalid_ids += i
-            if not x: break
     return invalid_ids
 
 if __name__ == "__main__":

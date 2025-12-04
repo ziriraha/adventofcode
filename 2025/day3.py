@@ -8,16 +8,14 @@ def part1():
     jolts = 0
     with open("inputs/day3.txt", "r") as f:
         while battery := f.readline().replace('\n', ''):
-            cells = list(map(int, battery))
-            jolts += find_best(cells, 2)
+            jolts += find_best(list(map(int, battery)), 2)
     return jolts
 
 def part2():
     jolts = 0
     with open("inputs/day3.txt", "r") as f:
         while battery := f.readline().replace('\n', ''):
-            cells = list(map(int, battery))
-            jolts += find_best(cells, 12)
+            jolts += find_best(list(map(int, battery)), 12)
     return jolts
 
 if __name__ == "__main__":
