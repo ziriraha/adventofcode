@@ -2,7 +2,7 @@ def read_input():
     rolls = {}
     with open("inputs/day4.txt", "r") as f:
         i = 0
-        while row := f.readline().replace('\n', ''):
+        while row := f.readline().strip():
             for j in range(len(row)):
                 rolls[i, j] = row[j]
             i += 1

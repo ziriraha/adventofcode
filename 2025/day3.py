@@ -7,14 +7,14 @@ def find_best(cells, depth):
 def part1():
     jolts = 0
     with open("inputs/day3.txt", "r") as f:
-        while battery := f.readline().replace('\n', ''):
+        while battery := f.readline().strip():
             jolts += find_best(list(map(int, battery)), 2)
     return jolts
 
 def part2():
     jolts = 0
     with open("inputs/day3.txt", "r") as f:
-        while battery := f.readline().replace('\n', ''):
+        while battery := f.readline().strip():
             jolts += find_best(list(map(int, battery)), 12)
     return jolts
 

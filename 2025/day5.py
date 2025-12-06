@@ -2,9 +2,9 @@ def read_input():
     fresh_ingredients = []
     ingredients = []
     with open("inputs/day5.txt", "r") as f:
-        while fresh := f.readline().replace('\n', ''):
+        while fresh := f.readline().strip():
             fresh_ingredients.append(tuple(map(int, fresh.split('-'))))
-        while ingredient := f.readline().replace('\n', ''):
+        while ingredient := f.readline().strip():
             ingredients.append(int(ingredient))
     return fresh_ingredients, ingredients
 
