@@ -14,6 +14,7 @@ This repository is dedicated to my solutions for the Advent of Code problems. Ad
 - Day 2 ✅ ✅
 - Day 3 ✅ ✅
 - Day 4 ✅ ✅
+- Day 5 ✅ ✅
 
 ### 2024
 - Day 1 ✅ ✅
