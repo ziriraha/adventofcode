@@ -1,13 +1,3 @@
-def read_input():
-    fresh_ingredients = []
-    ingredients = []
-    with open("inputs/day5.txt", "r") as f:
-        while fresh := f.readline().strip():
-            fresh_ingredients.append(tuple(map(int, fresh.split('-'))))
-        while ingredient := f.readline().strip():
-            ingredients.append(int(ingredient))
-    return fresh_ingredients, ingredients
-
 def merge_all_ranges(ranges):
     ranges.sort()
     merged = [ranges[0]]
@@ -18,20 +8,29 @@ def merge_all_ranges(ranges):
             merged.append(individual)
     return merged
 
+def read_input():
+    fresh_ingredients = []
+    ingredients = []
+    with open("inputs/day5.txt", "r") as f:
+        while fresh := f.readline().strip():
+            fresh_ingredients.append(tuple(map(int, fresh.split('-'))))
+        while ingredient := f.readline().strip():
+            ingredients.append(int(ingredient))
+    return merge_all_ranges(fresh_ingredients), ingredients.sort()
+
 def part1(fresh_ingredients, ingredients):
     safe_ingredients = set()
-    ingredients.sort()
-    for ingredient_range in merge_all_ranges(fresh_ingredients):
+    for start, stop in fresh_ingredients:
         in_range = False
         for ingredient in ingredients:
-            if ingredient_range[0] <= ingredient and ingredient <= ingredient_range[1]:
+            if start <= ingredient and ingredient <= stop:
                 safe_ingredients.add(ingredient)
                 in_range = True
             elif in_range: break
     return len(safe_ingredients)
 
 def part2(fresh_ingredients):
-    return sum(individual[1] - individual[0] + 1 for individual in merge_all_ranges(fresh_ingredients))
+    return sum(stop - start + 1 for start, stop in fresh_ingredients)
 
 if __name__ == "__main__":
     fresh_ingredients, ingredients = read_input()
