@@ -2,7 +2,7 @@
 This repository is dedicated to my solutions for the Advent of Code problems. Advent of Code is an annual event in December where each day a new programming challenge is released. This repository will track my progress over the years (Started on Dec 2024).
 
 ## Index
-- [2025](#2025) 14 ⭐
+- [2025](#2025) 16 ⭐
 - [2024](#2024) 26 ⭐
 - [2021](#2021) 2 ⭐
 - [2015](#2015) 8 ⭐
@@ -17,6 +17,7 @@ This repository is dedicated to my solutions for the Advent of Code problems. Ad
 - Day 5 ⭐ ⭐
 - Day 6 ⭐ ⭐
 - Day 7 ⭐ ⭐
+- Day 8 ⭐ ⭐
 
 ### 2024
 - Day 1 ⭐ ⭐
